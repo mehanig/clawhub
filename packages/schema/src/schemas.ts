@@ -167,12 +167,12 @@ export const ApiV1SkillListResponseSchema = type({
     stats: 'unknown',
     createdAt: 'number',
     updatedAt: 'number',
-    latestVersion: type({
-      version: 'string',
-      createdAt: 'number',
-      changelog: 'string',
-      capabilities: '("shell"|"filesystem"|"network"|"browser"|"sessions")[]?',
-    }).optional(),
+      latestVersion: type({
+        version: 'string',
+        createdAt: 'number',
+        changelog: 'string',
+        capabilities: '("shell"|"filesystem"|"network"|"browser"|"sessions"|"messaging"|"scheduling")[]?',
+      }).optional(),
   }).array(),
   nextCursor: 'string|null',
 })
@@ -191,7 +191,7 @@ export const ApiV1SkillResponseSchema = type({
     version: 'string',
     createdAt: 'number',
     changelog: 'string',
-    capabilities: '("shell"|"filesystem"|"network"|"browser"|"sessions")[]?',
+    capabilities: '("shell"|"filesystem"|"network"|"browser"|"sessions"|"messaging"|"scheduling")[]?',
   }).or('null'),
   owner: type({
     handle: 'string|null',
@@ -297,7 +297,9 @@ export const ClawdisRequiresSchema = type({
 })
 export type ClawdisRequires = (typeof ClawdisRequiresSchema)[inferred]
 
-export const SkillCapabilitySchema = type('"shell"|"filesystem"|"network"|"browser"|"sessions"')
+export const SkillCapabilitySchema = type(
+  '"shell"|"filesystem"|"network"|"browser"|"sessions"|"messaging"|"scheduling"',
+)
 export type SkillCapability = (typeof SkillCapabilitySchema)[inferred]
 
 export const EnvVarDeclarationSchema = type({
