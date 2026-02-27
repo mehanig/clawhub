@@ -58,15 +58,7 @@ export function SkillInstallCard({ clawdis, osLabels }: SkillInstallCardProps) {
               ))}
             </div>
           </div>
-        ) : (
-          <div className="skill-panel">
-            <div className="skill-panel-body">
-              <div className="stat" style={{ color: 'var(--ink-soft)' }}>
-                <span>No capabilities declared</span>
-              </div>
-            </div>
-          </div>
-        )}
+        ) : null}
         {hasRuntimeRequirements ? (
           <div className="skill-panel">
             <h3 className="section-title" style={{ fontSize: '1rem', margin: 0 }}>
