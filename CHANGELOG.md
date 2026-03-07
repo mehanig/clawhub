@@ -32,6 +32,7 @@
 - Comments: hide entries authored by deleted/deactivated users in `comments:listBySkill`.
 - Admin API: `POST /api/v1/users/reclaim` now performs non-destructive root-slug owner transfer
   (preserves existing skill versions/stats/metadata) and clears active slug reservations.
+- Publish/import: surface slug-collision errors cleanly and preflight conflicting slugs before upload/import (#605) (thanks @tristanmanchester).
 - VirusTotal: use shared AV-engine fallback verdict mapping for pending/backfill flows and keep undetected-only results pending (#591) (thanks @Shuai-DaiDai).
 - CLI publish: use a longer multipart upload timeout and normalize abort rejections into proper Errors (#550) (thanks @MunemHashmi).
 - CLI: forward optional auth tokens for `search` and `explore` against authenticated registries (#608) (thanks @artdaal).
